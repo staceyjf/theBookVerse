@@ -4,7 +4,7 @@ import "./App.scss";
 function App() {
   const [count, setCount] = useState(0);
 
-  return <>hello</>;
+  return <>welcome</>;
 }
 
 export default App;
