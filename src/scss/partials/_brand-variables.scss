@@ -1,0 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+$primary-color: #ff6ed9;
+$primary-color-light: #ffe6e7;
+$secondary-color: #9e98dc;
+$secondary-color-light: #efeef6;
+
+// taking the fonts weight as params for easy customisation
+@mixin font--primary($weight) {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  letter-spacing: 0.15em;
+}
+
+// @mixin font--secondary($weight) {
+//   font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif; //Geneva
+//   font-weight: $weight;
+//   letter-spacing: 0.025em;
+// }
