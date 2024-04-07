@@ -1,6 +1,6 @@
-import styles from "./Results.module.scss";
+import styles from "./ResultsContainer.module.scss";
 
-function Results() {
+function ResultsContainer() {
   return (
     <section className={styles.results}>
       THis is where all the books and results will go
@@ -8,4 +8,4 @@ function Results() {
   );
 }
 
-export default Results;
+export default ResultsContainer;

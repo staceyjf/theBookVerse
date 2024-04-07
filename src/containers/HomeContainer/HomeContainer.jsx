@@ -1,6 +1,6 @@
-import styles from "./Home.module.scss";
+import styles from "./HomeContainer.module.scss";
 
-function Home() {
+function HomeContainer() {
   return (
     <section className={styles.home}>
       This is where the splash page goes
@@ -8,4 +8,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomeContainer;

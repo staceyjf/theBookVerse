@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 $primary-color: #ff6ed9;
 $primary-color-light: #ffe6e7;
-$secondary-color: #9e98dc;
-$secondary-color-light: #efeef6;
+$secondary-color: #4c3db2;
+$secondary-color-light: #9e98dc;
 
 // taking the fonts weight as params for easy customisation
 @mixin font--primary($weight) {
@@ -13,8 +13,9 @@ $secondary-color-light: #efeef6;
   letter-spacing: 0.15em;
 }
 
-// @mixin font--secondary($weight) {
-//   font-family: "IBM Plex Sans", "Helvetica Neue", sans-serif; //Geneva
-//   font-weight: $weight;
-//   letter-spacing: 0.025em;
-// }
+@mixin font--secondary($weight) {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: $weight;
+  letter-spacing: 0.025em;
+}
