@@ -5,7 +5,10 @@ function HomeContainer() {
   return (
     <section className={styles.home}>
       <div className={styles.container}>
-        <h2>Welcome to the bookVerse</h2>
+        <div className={styles.header_wrapper}>
+          <h2>Welcome to the bookVerse</h2>
+        </div>
+
         <div className={styles.img_wrapper}>
           <PeopleIllustration />
         </div>

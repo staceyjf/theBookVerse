@@ -26,13 +26,13 @@ $xxl: 1400px; //large desktops
 }
 
 @mixin laptop {
-  @media only screen and (min-width: ($l)) and (max-width: ($xl - 1)) {
+  @media only screen and (min-width: ($l)) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media only screen and (min-width: ($xl)) {
-    @content;
-  }
-}
+// @mixin desktop {
+//   @media only screen and (min-width: ($xl)) {
+//     @content;
+//   }
+// }
