@@ -1,9 +1,12 @@
 import styles from "./ResultsContainer.module.scss";
+import BookList from "../../components/BookList/BookList";
 
 function ResultsContainer() {
   return (
     <section className={styles.results}>
-      THis is where all the books and results will go
+      <div className={styles.container}>
+        <BookList />
+      </div>
     </section>
   );
 }

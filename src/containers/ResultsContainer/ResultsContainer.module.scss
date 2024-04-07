@@ -1,5 +1,27 @@
+@use "../../scss/partials/brand-variables" as bv;
+@use "../../scss/partials/queries" as q;
+
 .results {
-  background-color: blue;
   width: 100%;
-  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    @include bv.font--primary(500);
+    position: relative;
+    padding: 1em;
+    gap: 1em;
+  }
+
+  @include q.large-phone {
+    .container {
+      justify-content: center;
+    }
+  }
 }

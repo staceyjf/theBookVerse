@@ -1,6 +1,5 @@
 // based on bootstrap breakpoints
 
-$xs: 0;
 $sm: 500px; // phone
 $m: 767px; // tablet
 $l: 992px; // large device like laptops
@@ -8,7 +7,7 @@ $xl: 1200px; // desktops
 $xxl: 1400px; //large desktops
 
 @mixin phone {
-  @media only screen and (min-width: $xs) and (max-width: ($sm - 1)) {
+  @media only screen and (min-width: 0) and (max-width: ($sm - 1)) {
     @content;
   }
 }
