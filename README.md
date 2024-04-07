@@ -1,6 +1,6 @@
 # Welcome to theBookVerse!
 
-Have a play at: books.staceyfanner.com
+Have a play at: [books.staceyfanner.com](https://portfolio.staceyfanner.com/theBookVerse/)
 
 theBookVerse is a comprehensive and intuitive books app designed to bring the world of literature to your fingertips. With theBookVerse, users can effortlessly explore an extensive library of books, discover new titles, and delve into detailed information about their favorite reads.
 

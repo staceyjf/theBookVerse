@@ -43,13 +43,17 @@
     h2 {
       font-size: 2em;
     }
+    .img_wrapper {
+      width: 80%;
+      height: auto;
+    }
   }
 
   @include q.laptop {
-    padding: 3em;
+    padding: 2em;
 
     .container {
-      padding-top: 7em;
+      padding-top: 10em;
     }
 
     .header_wrapper {
@@ -60,6 +64,11 @@
 
     h2 {
       font-size: 3em;
+    }
+
+    .img_wrapper {
+      width: 50%;
+      height: auto;
     }
   }
 }
