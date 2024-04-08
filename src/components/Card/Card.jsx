@@ -3,7 +3,7 @@ import styles from "./Card.module.scss";
 function Card({ id, title, subtitle, authors, description, imgURL }) {
   return (
     <div className={styles.card}>
-      <div className={styles.card_img}>
+      <div className={styles.card_imgContainer}>
         <img src={imgURL} alt="" />
       </div>
       <div className={styles.card_content}>
