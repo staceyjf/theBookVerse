@@ -12,17 +12,17 @@ $xxl: 1400px; //large desktops
   }
 }
 
-@mixin large-phone {
-  @media only screen and (min-width: $sm) and (max-width: ($m - 1)) {
+@mixin tablet {
+  @media only screen and (min-width: $sm) and (max-width: ($l - 1)) {
     @content;
   }
 }
 
-@mixin tablet {
-  @media only screen and (min-width: ($m)) and (max-width: ($l - 1)) {
-    @content;
-  }
-}
+// @mixin tablet {
+//   @media only screen and (min-width: ($m)) and (max-width: ($l - 1)) {
+//     @content;
+//   }
+// }
 
 @mixin laptop {
   @media only screen and (min-width: ($l)) {

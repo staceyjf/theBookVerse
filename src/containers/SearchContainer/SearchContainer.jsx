@@ -13,10 +13,7 @@ function SearchContainer() {
   return (
     <div className={styles.search}>
       <div className={styles.container}>
-        <Searchbar
-          placeholder="Search for books, by Author, by title"
-          onSearch={onSearch}
-        />
+        <Searchbar placeholder="Search by topic" onSearch={onSearch} />
       </div>
       <BookLoader searchTerm={searchTerm} />
     </div>

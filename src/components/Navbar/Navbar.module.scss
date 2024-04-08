@@ -1,4 +1,5 @@
 @use "../../scss/partials/brand-variables" as bv;
+@use "../../scss/partials/queries" as q;
 
 nav {
   display: flex;
@@ -14,5 +15,9 @@ nav {
     padding-left: 2em;
     display: flex;
     align-items: center;
+  }
+
+  @include q.phone {
+    padding-bottom: 2em;
   }
 }
