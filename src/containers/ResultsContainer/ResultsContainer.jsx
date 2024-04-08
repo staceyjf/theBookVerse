@@ -1,11 +1,11 @@
 import styles from "./ResultsContainer.module.scss";
-import BookList from "../../components/BookList/BookList";
+import CardList from "../../components/CardList/CardList";
 
 function ResultsContainer() {
   return (
     <section className={styles.results}>
       <div className={styles.container}>
-        <BookList />
+        <CardList />
       </div>
     </section>
   );
