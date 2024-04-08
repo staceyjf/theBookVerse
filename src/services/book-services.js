@@ -19,14 +19,14 @@ export const getBooksBySearchTerm = async (searchTerm) => {
 
 export const filterBookData = (bookArr) => {
   return bookArr.map((book) => {
-    const bookInfo = { ...book.volumeInfo, ...book.searchInfo, ...book.id };
+    const bookInfo = { ...book.volumeInfo, ...book.searchInfo };
     return {
-      id: bookInfo.id,
+      id: book.id,
       title: bookInfo.title,
       subtitle: bookInfo.subtitle,
       description: bookInfo.textSnippet,
       authors: bookInfo.authors,
-      imgURL: bookInfo.imageLinks.smallThumbnail,
+      imgURL: bookInfo.imageLinks.thumbnail,
     };
   });
 };

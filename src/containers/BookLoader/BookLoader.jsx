@@ -3,7 +3,7 @@ import {
   getBooksBySearchTerm,
   filterBookData,
 } from "../../services/book-services.js";
-import ResultsContainer from "../ResultsContainer/ResultsContainer.jsx";
+import CardList from "../../components/CardList/CardList.jsx";
 
 function BookLoader({ searchTerm }) {
   const [booksData, setBooksData] = useState(null);
@@ -30,7 +30,7 @@ function BookLoader({ searchTerm }) {
       {!isLoading && errorMessage && (
         <p style={{ color: "red" }}>{errorMessage.message}</p>
       )}
-      {!isLoading && booksData && <ResultsContainer booksData={booksData} />}
+      {!isLoading && booksData && <CardList booksData={booksData} />}
     </div>
   );
 }
