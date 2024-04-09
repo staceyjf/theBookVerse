@@ -7,7 +7,7 @@ function HomeContainer() {
     <section className={styles.home}>
       <div className={styles.container}>
         <div className={styles.header_wrapper}>
-          <Header text={"Welcome to the bookVerse"} />
+          <Header text={"Discover your new favourite book"} />
         </div>
         <div className={styles.img_wrapper}>
           <PeopleIllustration />
