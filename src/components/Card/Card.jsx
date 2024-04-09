@@ -11,11 +11,9 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
 
   // how can i change the transaction  based on window sizes
   let shortenedDescription = description
-    ? truncateDescription(description, 50)
+    ? truncateDescription(description, 35)
     : "";
 
-  // console.log(subtitle);
-  console.log(description);
   return (
     <div className={styles.card}>
       <div className={styles.card_imgContainer}>
@@ -23,9 +21,7 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
       </div>
       <div className={styles.card_wrapper}>
         <div className={styles.card_content}>
-          {authors.map((author) => (
-            <p key={author}>{author}</p>
-          ))}
+          {authors && authors.map((author) => <p key={author}>{author}</p>)}
           <h4>{title}</h4>
           {/* <p>{subtitle}</p> */}
           {shortenedDescription && <p>{shortenedDescription}</p>}

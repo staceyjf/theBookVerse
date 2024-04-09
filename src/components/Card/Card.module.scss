@@ -34,6 +34,12 @@
 
       & p {
         font-size: small;
+
+        &:last-of-type {
+          // text-align: justify;
+          margin-top: 1em;
+          font-size: medium;
+        }
       }
 
       & h4,

@@ -7,13 +7,15 @@ export const getBooksBySearchTerm = async (searchTerm) => {
   const response = await fetch(url);
 
   if (!response.ok) {
-    throw new Error("Failed to fetch the requested book");
+    console.warn(response.statusText);
+    throw new Error("Failed to fetch the requested book. Please try again");
   }
 
   const data = await response.json();
   const { items } = data;
 
   if (items.length === 0) {
+    console.warn(response.statusText);
     throw new Error(`No books found for ${searchTerm}`);
   }
 
