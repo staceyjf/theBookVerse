@@ -1,6 +1,11 @@
+import { useState } from "react";
 import styles from "./Card.module.scss";
+import Modal from "../Modal/Modal";
+import ModalLoader from "../../containers/ModalLoader/ModalLoader";
 
 function Card({ id, title, subtitle, authors, description, imgURL }) {
+  const [modal, setModal] = useState(false);
+
   const truncateDescription = (str, maxLength) => {
     if (str.length > maxLength) {
       return str.substring(0, maxLength) + "...";
@@ -27,7 +32,9 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
           {shortenedDescription && <p>{shortenedDescription}</p>}
         </div>
 
-        <button>Discover</button>
+        <button onClick={() => setModal(true)}>Discover</button>
+
+        <Modal openModal={modal} closeModal={() => setModal(false)} />
       </div>
     </div>
   );
