@@ -37,7 +37,7 @@ export const filterBookData = (bookArr) => {
       subtitle: book.volumeInfo?.subtitle,
       authors: book.volumeInfo?.authors,
       // description: book.searchInfo?.textSnippet,
-      description: book?.description,
+      description: book.volumeInfo?.description,
       imgURL: book.volumeInfo.imageLinks
         ? increaseZoomThumbnails(book.volumeInfo.imageLinks.thumbnail)
         : undefined,

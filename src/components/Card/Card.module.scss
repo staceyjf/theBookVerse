@@ -7,39 +7,40 @@
   display: flex;
   // flex-wrap: wrap;
   // gap: 1em;
-  border-radius: 15px;
 
   &_imgContainer {
-    background-color: red;
-    flex: 1; // Take up 50% of the space
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    flex: 1;
 
-    // position: absolute;
-    // top: 0;
-    // display: flex;
-    // width: 50%;
-    // justify-content: center;
-    // align-items: center;
     & img {
       width: 100%;
       height: 100%;
     }
   }
 
-  &_content {
-    flex: 1; // Take up 50% of the space
+  &_wrapper {
+    flex: 1;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     @include bv.font--secondary(400);
-    padding: 1em;
+    padding: 0.5em;
 
-    & h3 {
-      @include bv.font--primary(800);
-    }
+    .card_content {
+      & h4 {
+        @include bv.font--primary(800);
+        font-size: large;
+      }
 
-    & h3,
-    p {
-      padding: 0 0 0 0.5em;
-      margin: 0;
+      & p {
+        font-size: small;
+      }
+
+      & h4,
+      p {
+        // padding: 0 0 0 0.5em;
+        margin: 0.25em;
+      }
     }
 
     & button {
@@ -70,10 +71,10 @@
   //   width: 80%;
   // }
 
-  @include q.tablet {
-    max-width: calc(50% - 1em);
-    padding: 0.5em;
-  }
+  // @include q.tablet {
+  //   max-width: calc(50% - 1em);
+  //   padding: 0.5em;
+  // }
 
   @include q.laptop {
     max-width: calc(33.33% - 1em);
