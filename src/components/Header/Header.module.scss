@@ -1,0 +1,14 @@
+@use "../../scss/partials/brand-variables" as bv;
+@use "../../scss/partials/queries" as q;
+
+.main_header {
+  @include bv.font--primary(500);
+
+  @include q.tablet {
+    font-size: 1.5em;
+  }
+
+  @include q.laptop {
+    font-size: 3em;
+  }
+}

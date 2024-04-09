@@ -1,14 +1,14 @@
 import styles from "./HomeContainer.module.scss";
 import PeopleIllustration from "../../components/PeopleIllustration/PeopleIllustration";
+import Header from "../../components/Header/Header";
 
 function HomeContainer() {
   return (
     <section className={styles.home}>
       <div className={styles.container}>
         <div className={styles.header_wrapper}>
-          <h2>Welcome to the bookVerse</h2>
+          <Header text={"Welcome to the bookVerse"} />
         </div>
-
         <div className={styles.img_wrapper}>
           <PeopleIllustration />
         </div>

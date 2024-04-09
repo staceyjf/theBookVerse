@@ -7,7 +7,7 @@
   align-items: center;
   width: 100%;
   height: max-content;
-  @include bv.font--primary(500);
+  // @include bv.font--primary(500);
   position: relative;
 
   .container {
@@ -40,9 +40,9 @@
       width: 65%;
     }
 
-    h2 {
-      font-size: 1.5em;
-    }
+    // h2 {
+    //   font-size: 1.5em;
+    // }
     .img_wrapper {
       width: 80%;
       height: auto;
@@ -62,9 +62,9 @@
       width: 55%;
     }
 
-    h2 {
-      font-size: 3em;
-    }
+    // h2 {
+    //   font-size: 3em;
+    // }
 
     .img_wrapper {
       width: 50%;

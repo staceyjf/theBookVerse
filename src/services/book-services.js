@@ -1,5 +1,8 @@
 export const getBooksBySearchTerm = async (searchTerm) => {
-  const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${process.env.VITE_GOOGLEBOOKS_API_KEY}`;
+  const apiKey = import.meta.env.VITE_GOOGLEBOOKS_API_KEY;
+
+  const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`;
+  // const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`;
 
   const response = await fetch(url);
 
@@ -24,15 +27,19 @@ const increaseZoomThumbnails = (url) => {
 };
 
 // textSnippet is a truncated description
+// using the nullish operator ?. to return undefined if it isn't present
+// need to find a solution for image for rendering
 export const filterBookData = (bookArr) => {
   return bookArr.map((book) => {
     return {
       id: book.id,
       title: book.volumeInfo.title,
-      subtitle: book.volumeInfo.subtitle,
-      authors: book.volumeInfo.authors,
-      description: book.searchInfo.textSnippet,
-      imgURL: increaseZoomThumbnails(book.imageLinks.thumbnail),
+      subtitle: book.volumeInfo?.subtitle,
+      authors: book.volumeInfo?.authors,
+      description: book.searchInfo?.textSnippet,
+      imgURL: book.volumeInfo.imageLinks
+        ? increaseZoomThumbnails(book.volumeInfo.imageLinks.thumbnail)
+        : undefined,
     };
   });
 };
