@@ -17,16 +17,22 @@ export const getBooksBySearchTerm = async (searchTerm) => {
   return items;
 };
 
+const increaseZoomThumbnails = (url) => {
+  // http://books.google.com/books/content?id=x6NgAAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
+  const zoomFactor = 10;
+  return url.replace(`zoom=1`, `zoom=${zoomFactor}`);
+};
+
+// textSnippet is a truncated description
 export const filterBookData = (bookArr) => {
   return bookArr.map((book) => {
-    const bookInfo = { ...book.volumeInfo, ...book.searchInfo };
     return {
       id: book.id,
-      title: bookInfo.title,
-      subtitle: bookInfo.subtitle,
-      description: bookInfo.textSnippet,
-      authors: bookInfo.authors,
-      imgURL: bookInfo.imageLinks.thumbnail,
+      title: book.volumeInfo.title,
+      subtitle: book.volumeInfo.subtitle,
+      authors: book.volumeInfo.authors,
+      description: book.searchInfo.textSnippet,
+      imgURL: increaseZoomThumbnails(book.imageLinks.thumbnail),
     };
   });
 };
