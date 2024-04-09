@@ -11,7 +11,7 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
 
   // how can i change the transaction  based on window sizes
   let shortenedDescription = description
-    ? truncateDescription(description, 35)
+    ? truncateDescription(description, 50)
     : "";
 
   return (
