@@ -1,6 +1,6 @@
 // Modal as a separate component
 import { useEffect, useRef } from "react";
-import styles from "./Modal.module.scss";
+import styles from "./ModalLoader.module.scss";
 
 function ModalLoader({ openModal, closeModal, children }) {
   const ref = useRef();
