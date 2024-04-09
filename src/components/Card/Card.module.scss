@@ -2,18 +2,17 @@
 @use "../../scss/partials/queries" as q;
 
 .card {
-  height: min-content;
   flex: 1 0 100%;
   position: relative;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
+  // flex-wrap: wrap;
+  // gap: 1em;
   border-radius: 15px;
 
-  &_img {
+  &_imgContainer {
     background-color: red;
-    width: 200px;
-    height: 200px;
+    flex: 1; // Take up 50% of the space
+
     // position: absolute;
     // top: 0;
     // display: flex;
@@ -27,7 +26,7 @@
   }
 
   &_content {
-    flex: 1;
+    flex: 1; // Take up 50% of the space
     display: flex;
     flex-direction: column;
     @include bv.font--secondary(400);

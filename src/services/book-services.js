@@ -22,7 +22,7 @@ export const getBooksBySearchTerm = async (searchTerm) => {
 
 const increaseZoomThumbnails = (url) => {
   // http://books.google.com/books/content?id=x6NgAAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
-  const zoomFactor = 10;
+  const zoomFactor = 5;
   return url.replace(`zoom=1`, `zoom=${zoomFactor}`);
 };
 
@@ -36,7 +36,8 @@ export const filterBookData = (bookArr) => {
       title: book.volumeInfo.title,
       subtitle: book.volumeInfo?.subtitle,
       authors: book.volumeInfo?.authors,
-      description: book.searchInfo?.textSnippet,
+      // description: book.searchInfo?.textSnippet,
+      description: book?.description,
       imgURL: book.volumeInfo.imageLinks
         ? increaseZoomThumbnails(book.volumeInfo.imageLinks.thumbnail)
         : undefined,

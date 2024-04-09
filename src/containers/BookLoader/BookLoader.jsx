@@ -10,6 +10,14 @@ function BookLoader({ searchTerm }) {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
+  useEffect(() => {
+    getBooksBySearchTerm("fun")
+      .then((resultsData) => filterBookData(resultsData))
+      .then((initialBookData) => setBooksData(initialBookData))
+      .catch((e) => setErrorMessage(e))
+      .finally(() => setIsLoading(false)); // updated with a spinner
+  }, []);
+
   // re-render when searchTerm changes
   useEffect(() => {
     if (searchTerm !== null) {
