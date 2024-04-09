@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Set Vite Environment Variable
-        run: echo "VITE_GOOGLEBOOKS_API_KEY=${{ secrets.GOOGLEBOOKS_API_KEY }}" >> .env.production
+      # - name: Set Environment Variable
+      #   run: echo "GOOGLEBOOKS_API_KEY=${{ secrets.GOOGLEBOOKS_API_KEY }}" >> $GITHUB_ENV
 
       - name: Building project
         run: npm run build
