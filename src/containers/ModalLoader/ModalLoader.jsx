@@ -32,7 +32,7 @@ function ModalLoader({ bookId, modalOpen, setModalOpen }) {
         <Modal
           openModal={modalOpen}
           setModalOpen={setModalOpen}
-          bookData={bookData}
+          {...bookData}
         />
       )}
     </div>
