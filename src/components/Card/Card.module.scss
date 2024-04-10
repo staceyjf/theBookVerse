@@ -3,8 +3,9 @@
 
 .card {
   display: grid;
-  grid-template-rows: 0.5fr;
+  grid-template-rows: 250px;
   grid-template-columns: 1fr 1fr;
+  column-gap: 0.5em;
 
   & img {
     width: 100%;
@@ -13,17 +14,13 @@
   }
 
   &_right {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     @include bv.font--secondary(400);
-    padding: 0.5em;
 
     .card_content {
       & h4 {
         @include bv.font--primary(800);
-        font-size: large;
       }
 
       & p {
@@ -48,13 +45,13 @@
       cursor: pointer;
       border-radius: 8px;
       padding: 14px 24px 16px;
-      font-size: 18px;
       font-weight: 700;
       line-height: 1;
       transition: transform 100ms, background-color 100ms;
       background: transparent;
       color: bv.$secondary-color;
       box-shadow: 0 0 0 3px bv.$secondary-color inset;
+      margin-top: auto;
 
       &:hover {
         transform: translateY(-2px);
@@ -65,8 +62,15 @@
     }
   }
 
+  @include q.tablet {
+    max-width: calc(50% - 1em);
+    padding: 0.75em;
+    grid-template-rows: 250px;
+  }
+
   @include q.laptop {
     max-width: calc(33.33% - 1em);
     padding: 1em;
+    grid-template-rows: 280px;
   }
 }

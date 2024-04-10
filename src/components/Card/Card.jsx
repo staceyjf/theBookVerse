@@ -17,27 +17,35 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
 
   const maxLengthValue = calculateMaxLength();
 
-  const truncateDescription = (str, maxLength) => {
+  const formatDescription = (str, maxLength) => {
     if (!str) return;
 
     if (str.length > maxLength) {
-      return str.substring(0, maxLength) + "...";
+      return (
+        str.charAt(0).toUpperCase() +
+        str.substring(1, maxLength).toLowerCase() +
+        "..."
+      );
     } else {
-      return str;
+      return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
     }
   };
 
   return (
     <div className={styles.card}>
-      <img src={imgURL} alt={`Book cover for ${title}`} />
+      <div>
+        <img src={imgURL} alt={`Book cover for ${title}`} />
+      </div>
 
       <div className={styles.card_right}>
         <div className={styles.card_content}>
           {authors && authors.map((author) => <p key={author}>{author}</p>)}
           <h4>{title}</h4>
-          {description && (
-            <p>{truncateDescription(description, maxLengthValue)}</p>
-          )}
+          <p>
+            {description
+              ? formatDescription(description, maxLengthValue)
+              : "No description available"}
+          </p>
         </div>
 
         <button onClick={() => setModal(true)}>Discover</button>
