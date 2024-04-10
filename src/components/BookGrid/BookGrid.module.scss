@@ -1,18 +1,11 @@
 @use "../../scss/partials/brand-variables" as bv;
 @use "../../scss/partials/queries" as q;
 
-.results {
+.bookGrid_container {
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .container {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    padding: 1em;
-    gap: 1em;
-  }
+  flex-wrap: wrap;
+  position: relative;
+  padding: 1em;
+  gap: 1em;
 }

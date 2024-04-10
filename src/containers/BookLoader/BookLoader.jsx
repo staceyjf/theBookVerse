@@ -34,12 +34,12 @@ function BookLoader({ searchTerm }) {
 
   // TODO - is it best to have a component for error messaging
   return (
-    <div>
+    <>
       {isLoading && <Spinner />}
       {!isLoading && errorMessage && <p>{errorMessage.message}</p>}
       {!isLoading && booksData && <BookGrid booksData={booksData} />}
       {/* TODO: Put modal here */}
-    </div>
+    </>
   );
 }
 

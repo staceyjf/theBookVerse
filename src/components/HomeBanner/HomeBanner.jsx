@@ -1,6 +1,6 @@
-import styles from "./HomeBanner.module.scss";
 import PeopleIllustration from "../PeopleIllustration/PeopleIllustration";
 import Header from "../Header/Header";
+import styles from "./HomeBanner.module.scss";
 
 function HomeBanner() {
   return (

@@ -2,19 +2,17 @@
 @use "../../scss/partials/queries" as q;
 
 .card {
-  flex: 1 0 100%;
-  position: relative;
-  display: flex;
-  // flex-wrap: wrap;
-  // gap: 1em;
+  display: grid;
+  grid-template-rows: 0.5fr;
+  grid-template-columns: 1fr 1fr;
 
   & img {
-    width: 50%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
-  &_wrapper {
+  &_right {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -23,8 +21,6 @@
     padding: 0.5em;
 
     .card_content {
-      width: 100px;
-
       & h4 {
         @include bv.font--primary(800);
         font-size: large;
@@ -34,7 +30,6 @@
         font-size: small;
 
         &:last-of-type {
-          // text-align: justify;
           margin-top: 1em;
           font-size: medium;
         }
@@ -42,7 +37,6 @@
 
       & h4,
       p {
-        // padding: 0 0 0 0.5em;
         margin: 0.25em;
       }
     }
@@ -70,15 +64,6 @@
       }
     }
   }
-
-  // @include q.large-phone {
-  //   width: 80%;
-  // }
-
-  // @include q.tablet {
-  //   max-width: calc(50% - 1em);
-  //   padding: 0.5em;
-  // }
 
   @include q.laptop {
     max-width: calc(33.33% - 1em);

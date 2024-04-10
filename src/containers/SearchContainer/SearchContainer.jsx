@@ -14,7 +14,7 @@ function SearchContainer() {
 
   return (
     <div className={styles.search}>
-      <div className={styles.container}>
+      <div className={styles.searchbar_container}>
         <Searchbar placeholder="Search books by topic" onSearch={onSearch} />
       </div>
       <BookLoader searchTerm={searchTerm} />

@@ -29,11 +29,9 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
 
   return (
     <div className={styles.card}>
-      {/* <div className={styles.card_imgContainer}> */}
-      <img src={imgURL} alt="" />
-      {/* </div> */}
+      <img src={imgURL} alt={`Book cover for ${title}`} />
 
-      <div className={styles.card_wrapper}>
+      <div className={styles.card_right}>
         <div className={styles.card_content}>
           {authors && authors.map((author) => <p key={author}>{author}</p>)}
           <h4>{title}</h4>

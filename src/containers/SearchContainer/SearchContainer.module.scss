@@ -10,7 +10,7 @@
   height: max-content;
   position: relative;
 
-  .container {
+  .searchbar_container {
     background-color: bv.$secondary-color;
     opacity: 40%;
     height: 100%;
@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2em;
+    padding: 1em;
     text-align: center;
     position: relative;
   }
