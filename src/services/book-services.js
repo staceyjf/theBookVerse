@@ -90,6 +90,9 @@ export const bookDataForRender = (book) => {
       ? increaseZoomThumbnails(book.volumeInfo.imageLinks.thumbnail)
       : undefined,
   };
+
+  console.log("this is the book data from services");
+  console.log(cleanedBook);
   return cleanedBook;
 };
 

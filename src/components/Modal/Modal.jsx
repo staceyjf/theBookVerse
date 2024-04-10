@@ -10,6 +10,7 @@ function Modal({ bookData, openModal, setModalOpen }) {
     openModal ? modal.current?.showModal() : modal.current?.close();
   }, [openModal]);
 
+  console.log("this is inside the modal");
   console.log(bookData);
 
   return (
@@ -18,7 +19,6 @@ function Modal({ bookData, openModal, setModalOpen }) {
       ref={modal}
       onCancel={() => setModalOpen(false)}
     >
-      {bookData}
       <button onClick={() => setModalOpen(false)}>Close</button>
     </dialog>
   );
