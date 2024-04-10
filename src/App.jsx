@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="flexbox">
+    <div className="wrapper">
       <Navbar />
       <HomeContainer />
       <SearchContainer />

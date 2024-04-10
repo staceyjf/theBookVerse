@@ -36,7 +36,6 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
         <div className={styles.card_content}>
           {authors && authors.map((author) => <p key={author}>{author}</p>)}
           <h4>{title}</h4>
-          {/* <p>{subtitle}</p> */}
           {description && (
             <p>{truncateDescription(description, maxLengthValue)}</p>
           )}
