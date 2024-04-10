@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import {
   getBooksBySearchTerm,
-  createBookObjectsFromSearchResults,
+  booksDataForRender,
 } from "../../services/book-services.js";
 import BookGrid from "../../components/BookGrid/BookGrid.jsx";
 import Spinner from "../../components/Spinner/Spinner.jsx";
@@ -13,21 +13,20 @@ function BookLoader({ searchTerm }) {
 
   useEffect(() => {
     getBooksBySearchTerm("fun")
-      .then((resultsData) => createBookObjectsFromSearchResults(resultsData))
+      .then((resultsData) => booksDataForRender(resultsData))
       .then((initialBookData) => setBooksData(initialBookData))
       .catch((e) => setErrorMessage(e))
       .finally(() => setIsLoading(false)); // my spinner is purely CSS
   }, []);
 
-  // re-render when searchTerm changes
   useEffect(() => {
     if (searchTerm !== null) {
       setIsLoading(true);
       setErrorMessage(null);
 
       getBooksBySearchTerm(searchTerm)
-        .then((resultsData) => createBookObjectsFromSearchResults(resultsData))
-        .then((initialBookData) => setBooksData(initialBookData))
+        .then((booksData) => booksDataForRender(booksData))
+        .then((cleanedBooksData) => setBooksData(cleanedBooksData))
         .catch((e) => setErrorMessage(e))
         .finally(() => setIsLoading(false));
     }
@@ -39,6 +38,7 @@ function BookLoader({ searchTerm }) {
       {isLoading && <Spinner />}
       {!isLoading && errorMessage && <p>{errorMessage.message}</p>}
       {!isLoading && booksData && <BookGrid booksData={booksData} />}
+      {/* TODO: Put modal here */}
     </div>
   );
 }

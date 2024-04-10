@@ -2,13 +2,14 @@
 @use "../../scss/partials/queries" as q;
 
 .main_header {
-  @include bv.font--primary(500);
+  @include bv.font--primary(600);
+  font-size: 1.15em;
 
   @include q.tablet {
-    font-size: 1.5em;
+    font-size: 1.25em;
   }
 
   @include q.laptop {
-    font-size: 3em;
+    font-size: 2.5em;
   }
 }

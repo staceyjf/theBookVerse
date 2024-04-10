@@ -7,7 +7,6 @@
   align-items: center;
   width: 100%;
   height: max-content;
-  // @include bv.font--primary(500);
   position: relative;
 
   .container {
@@ -23,12 +22,11 @@
   }
 
   .img_wrapper {
-    width: 100%;
-    height: auto;
+    width: 65%;
   }
 
   @include q.tablet {
-    padding: 1.5em;
+    padding: 1em 1.5em 1em 1.5em;
 
     .container {
       padding-top: 4.5em;
@@ -39,33 +37,25 @@
       top: 0;
       width: 65%;
     }
-
-    h2 {
-      font-size: 1.25em;
-    }
-
-    .img_wrapper {
-      width: 80%;
-      height: auto;
-    }
   }
 
   @include q.laptop {
-    padding: 2em;
+    padding: 1em 2em 1em 2em;
 
     .container {
-      padding-top: 10em;
+      padding-left: 6em;
+      align-items: flex-start;
+    }
+
+    .img_wrapper {
+      width: 45%;
     }
 
     .header_wrapper {
       position: absolute;
-      top: 0;
-      width: 70%;
-    }
-
-    .img_wrapper {
-      width: 50%;
-      height: auto;
+      top: 25;
+      right: 10%;
+      width: 30%;
     }
   }
 }

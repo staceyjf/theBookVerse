@@ -1,8 +1,8 @@
-import styles from "./HomeContainer.module.scss";
-import PeopleIllustration from "../../components/PeopleIllustration/PeopleIllustration";
-import Header from "../../components/Header/Header";
+import styles from "./HomeBanner.module.scss";
+import PeopleIllustration from "../PeopleIllustration/PeopleIllustration";
+import Header from "../Header/Header";
 
-function HomeContainer() {
+function HomeBanner() {
   return (
     <section className={styles.home}>
       <div className={styles.container}>
@@ -17,4 +17,4 @@ function HomeContainer() {
   );
 }
 
-export default HomeContainer;
+export default HomeBanner;

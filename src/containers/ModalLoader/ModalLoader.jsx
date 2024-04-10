@@ -1,23 +1,35 @@
-// Modal as a separate component
-import { useEffect, useRef } from "react";
-import styles from "./ModalLoader.module.scss";
+import { useEffect, useState } from "react";
+import {
+  getBookByBookId,
+  bookDataForRender,
+} from "../../services/book-services.js";
+// import Modal from "../../components/Modal/Modal.jsx";
+import Spinner from "../../components/Spinner/Spinner.jsx";
 
-function ModalLoader({ openModal, closeModal, children }) {
-  const ref = useRef();
+function ModalLoader({ bookId }) {
+  const [bookData, setBookData] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    if (openModal) {
-      ref.current?.showModal();
-    } else {
-      ref.current?.close();
+    if (bookId !== null) {
+      setIsLoading(true);
+      setErrorMessage(null);
+
+      getBookByBookId(bookId)
+        .then((bookData) => bookDataForRender(bookData))
+        .then((cleanedBookData) => setBookData(cleanedBookData))
+        .catch((e) => setErrorMessage(e))
+        .finally(() => setIsLoading(false));
     }
-  }, [openModal]);
+  }, [bookId]);
 
   return (
-    <dialog className={styles.card_modal} ref={ref} onCancel={closeModal}>
-      {children}
-      <button onClick={closeModal}>Close</button>
-    </dialog>
+    <div>
+      {isLoading && <Spinner />}
+      {!isLoading && errorMessage && <p>{errorMessage.message}</p>}
+      {!isLoading && bookData && <Modal bookData={bookData} />}
+    </div>
   );
 }
 

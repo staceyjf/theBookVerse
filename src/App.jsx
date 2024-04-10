@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./App.scss";
 import Navbar from "./components/Navbar/Navbar";
-import HomeContainer from "./containers/HomeContainer/HomeContainer.jsx";
+import HomeBanner from "./components/HomeBanner/HomeBanner.jsx";
 import SearchContainer from "./containers/SearchContainer/SearchContainer.jsx";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="wrapper">
       <Navbar />
-      <HomeContainer />
+      <HomeBanner />
       <SearchContainer />
     </div>
   );
