@@ -27,10 +27,12 @@ export const getBooksBySearchTerm = async (searchTerm) => {
 };
 
 // zoom controls image quality
-const increaseZoomThumbnails = (url) => {
+const increaseZoomThumbnails = (id) => {
   // http://books.google.com/books/content?id=x6NgAAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
-  const zoomFactor = 5;
-  return url.replace(`zoom=1`, `zoom=${zoomFactor}`);
+  //books.google.com/books/publisher/content/images/frontcover/{ID}?fife=w400-h600&source=gbs_api
+  // const zoomFactor = 5;
+  // return url.replace(`zoom=1`, `zoom=${zoomFactor}`);
+  return `https://books.google.com/books/publisher/content/images/frontcover/${id}?fife=w200-h300&source=gbs_api`;
 };
 
 // using the nullish operator ?. to return undefined if it isn't present
@@ -43,7 +45,7 @@ export const booksDataForRender = (bookArr) => {
       authors: book.volumeInfo?.authors,
       description: book.volumeInfo?.description,
       imgURL: book.volumeInfo.imageLinks
-        ? increaseZoomThumbnails(book.volumeInfo.imageLinks.thumbnail)
+        ? increaseZoomThumbnails(book.id)
         : undefined,
     };
   });

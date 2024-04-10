@@ -10,21 +10,19 @@ function Card({
   setBookId,
   setModalOpen,
 }) {
-  const calculateMaxLength = () => {
+  const calculateMaxLength = (title) => {
     // based on mobile media queries
-    if (window.innerWidth <= 499) return 50;
+    if (window.innerWidth <= 499) {
+      return title.length > 25 ? 35 : 100;
+    }
 
-    // based on tablet media queries
-    if (window.innerWidth <= 991) return 50;
-
-    // for bigger screens
-    return 75;
+    return title.length > 30 ? 40 : 150;
   };
 
-  const maxLengthValue = calculateMaxLength();
+  const maxLengthValue = calculateMaxLength(title);
 
   const formatDescription = (str, maxLength) => {
-    if (!str) return;
+    if (!str) str = "No description available";
 
     if (str.length > maxLength) {
       return (
@@ -49,12 +47,8 @@ function Card({
       <div className={styles.card_right}>
         <div className={styles.card_content}>
           {authors && authors.map((author) => <p key={author}>{author}</p>)}
-          <h4>{title}</h4>
-          <p>
-            {description
-              ? formatDescription(description, maxLengthValue)
-              : "No description available"}
-          </p>
+          <h5>{title}</h5>
+          <p>{formatDescription(description, maxLengthValue)}</p>
         </div>
 
         <button onClick={() => handleModalClick(id)}>Discover</button>
