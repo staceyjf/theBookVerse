@@ -3,10 +3,10 @@ import {
   getBookByBookId,
   bookDataForRender,
 } from "../../services/book-services.js";
-// import Modal from "../../components/Modal/Modal.jsx";
+import Modal from "../../components/Modal/Modal.jsx";
 import Spinner from "../../components/Spinner/Spinner.jsx";
 
-function ModalLoader({ bookId }) {
+function ModalLoader({ bookId, modalOpen, setModalOpen }) {
   const [bookData, setBookData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -28,7 +28,13 @@ function ModalLoader({ bookId }) {
     <div>
       {isLoading && <Spinner />}
       {!isLoading && errorMessage && <p>{errorMessage.message}</p>}
-      {!isLoading && bookData && <Modal bookData={bookData} />}
+      {!isLoading && bookData && (
+        <Modal
+          openModal={modalOpen}
+          setModalOpen={setModalOpen}
+          bookData={bookData}
+        />
+      )}
     </div>
   );
 }

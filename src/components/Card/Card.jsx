@@ -1,9 +1,15 @@
 import { useState } from "react";
 import styles from "./Card.module.scss";
 
-function Card({ id, title, subtitle, authors, description, imgURL }) {
-  const [modal, setModal] = useState(false);
-
+function Card({
+  id,
+  title,
+  authors,
+  description,
+  imgURL,
+  setBookId,
+  setModalOpen,
+}) {
   const calculateMaxLength = () => {
     // based on mobile media queries
     if (window.innerWidth <= 499) return 50;
@@ -31,6 +37,11 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
     }
   };
 
+  const handleModalClick = (bookId) => {
+    setBookId(bookId);
+    setModalOpen(true);
+  };
+
   return (
     <div className={styles.card}>
       <img src={imgURL} alt={`Book cover for ${title}`} />
@@ -46,7 +57,7 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
           </p>
         </div>
 
-        <button onClick={() => setModal(true)}>Discover</button>
+        <button onClick={() => handleModalClick(id)}>Discover</button>
       </div>
     </div>
   );

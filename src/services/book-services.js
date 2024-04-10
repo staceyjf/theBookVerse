@@ -64,7 +64,7 @@ export const getBookByBookId = async (bookId) => {
 
   const data = await response.json();
 
-  if (data !== null) {
+  if (data === null) {
     console.warn(response.statusText);
     throw new Error(`No book was found with an id of ${bookId}`);
   }
@@ -73,7 +73,7 @@ export const getBookByBookId = async (bookId) => {
 };
 
 // using the nullish operator ?. to return undefined if it isn't present
-export const bookDataForRender = (bookObj) => {
+export const bookDataForRender = (book) => {
   const cleanedBook = {
     id: book.id,
     title: book.volumeInfo.title,
@@ -90,7 +90,6 @@ export const bookDataForRender = (bookObj) => {
       ? increaseZoomThumbnails(book.volumeInfo.imageLinks.thumbnail)
       : undefined,
   };
-
   return cleanedBook;
 };
 
