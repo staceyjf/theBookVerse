@@ -1,23 +1,31 @@
 import { useState } from "react";
 import styles from "./Card.module.scss";
-import Modal from "../Modal/Modal";
-import ModalLoader from "../../containers/ModalLoader/ModalLoader";
 
 function Card({ id, title, subtitle, authors, description, imgURL }) {
   const [modal, setModal] = useState(false);
 
+  const calculateMaxLength = () => {
+    // based on mobile media queries
+    if (window.innerWidth <= 499) return 50;
+
+    // based on tablet media queries
+    if (window.innerWidth <= 991) return 75;
+
+    // for bigger screens
+    return 100;
+  };
+
+  const maxLengthValue = calculateMaxLength();
+
   const truncateDescription = (str, maxLength) => {
+    if (!str) return;
+
     if (str.length > maxLength) {
       return str.substring(0, maxLength) + "...";
     } else {
       return str;
     }
   };
-
-  // how can i change the transaction  based on window sizes
-  let shortenedDescription = description
-    ? truncateDescription(description, 50)
-    : "";
 
   return (
     <div className={styles.card}>
@@ -29,12 +37,12 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
           {authors && authors.map((author) => <p key={author}>{author}</p>)}
           <h4>{title}</h4>
           {/* <p>{subtitle}</p> */}
-          {shortenedDescription && <p>{shortenedDescription}</p>}
+          {description && (
+            <p>{truncateDescription(description, maxLengthValue)}</p>
+          )}
         </div>
 
         <button onClick={() => setModal(true)}>Discover</button>
-
-        <Modal openModal={modal} closeModal={() => setModal(false)} />
       </div>
     </div>
   );

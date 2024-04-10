@@ -1,7 +1,7 @@
-import styles from "./CardList.module.scss";
+import styles from "./BookGrid.module.scss";
 import Card from "../Card/Card";
 
-function CardList({ booksData }) {
+function BookGrid({ booksData }) {
   return (
     <section className={styles.results}>
       <div className={styles.container}>
@@ -13,4 +13,4 @@ function CardList({ booksData }) {
   );
 }
 
-export default CardList;
+export default BookGrid;

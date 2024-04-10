@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import {
   getBooksBySearchTerm,
-  filterBookData,
+  createBookObjectsFromSearchResults,
 } from "../../services/book-services.js";
-import CardList from "../../components/CardList/CardList.jsx";
+import BookGrid from "../../components/BookGrid/BookGrid.jsx";
 import Spinner from "../../components/Spinner/Spinner.jsx";
 
 function BookLoader({ searchTerm }) {
@@ -13,7 +13,7 @@ function BookLoader({ searchTerm }) {
 
   useEffect(() => {
     getBooksBySearchTerm("fun")
-      .then((resultsData) => filterBookData(resultsData))
+      .then((resultsData) => createBookObjectsFromSearchResults(resultsData))
       .then((initialBookData) => setBooksData(initialBookData))
       .catch((e) => setErrorMessage(e))
       .finally(() => setIsLoading(false)); // my spinner is purely CSS
@@ -26,7 +26,7 @@ function BookLoader({ searchTerm }) {
       setErrorMessage(null);
 
       getBooksBySearchTerm(searchTerm)
-        .then((resultsData) => filterBookData(resultsData))
+        .then((resultsData) => createBookObjectsFromSearchResults(resultsData))
         .then((initialBookData) => setBooksData(initialBookData))
         .catch((e) => setErrorMessage(e))
         .finally(() => setIsLoading(false));
@@ -38,7 +38,7 @@ function BookLoader({ searchTerm }) {
     <div>
       {isLoading && <Spinner />}
       {!isLoading && errorMessage && <p>{errorMessage.message}</p>}
-      {!isLoading && booksData && <CardList booksData={booksData} />}
+      {!isLoading && booksData && <BookGrid booksData={booksData} />}
     </div>
   );
 }

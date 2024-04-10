@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "./SearchContainer.module.scss";
 import Searchbar from "../../components/Searchbar/Searchbar";
 import BookLoader from "../BookLoader/BookLoader.jsx";
+import ModalLoader from "../../containers/ModalLoader/ModalLoader";
 
 function SearchContainer() {
   const [searchTerm, setSearchTerm] = useState(null);
@@ -16,6 +17,7 @@ function SearchContainer() {
         <Searchbar placeholder="Search books by topic" onSearch={onSearch} />
       </div>
       <BookLoader searchTerm={searchTerm} />
+      <ModalLoader />
     </div>
   );
 }
