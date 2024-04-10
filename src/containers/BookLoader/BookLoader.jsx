@@ -12,7 +12,8 @@ function BookLoader({ searchTerm }) {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    getBooksBySearchTerm("fun")
+    setErrorMessage(null);
+    getBooksBySearchTerm("happy")
       .then((resultsData) => booksDataForRender(resultsData))
       .then((initialBookData) => setBooksData(initialBookData))
       .catch((e) => setErrorMessage(e))

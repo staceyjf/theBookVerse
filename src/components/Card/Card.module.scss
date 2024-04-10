@@ -3,13 +3,8 @@
 
 .card {
   display: grid;
-  grid-template-rows: 250px;
-  grid-template-columns: 1fr 1fr;
-  column-gap: 0.5em;
 
   & img {
-    width: 100%;
-    height: 100%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 
@@ -27,7 +22,7 @@
         font-size: small;
 
         &:last-of-type {
-          margin-top: 1em;
+          margin-top: 0.5em;
           font-size: medium;
         }
       }
@@ -62,15 +57,42 @@
     }
   }
 
+  @include q.phone {
+    grid-template-rows: 0.25fr 0.5fr;
+    grid-template-columns: 1fr;
+    row-gap: 1em;
+
+    & img {
+      width: auto;
+      height: 100%;
+      justify-self: center;
+    }
+  }
+
   @include q.tablet {
+    grid-template-rows: 300px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.5em;
     max-width: calc(50% - 1em);
     padding: 0.75em;
-    grid-template-rows: 250px;
+    column-gap: 1em;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @include q.laptop {
     max-width: calc(33.33% - 1em);
     padding: 1em;
     grid-template-rows: 280px;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+
+    & img {
+      width: 100%;
+      height: 100%;
+    }
   }
 }

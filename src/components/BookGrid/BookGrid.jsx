@@ -1,5 +1,5 @@
-import styles from "./BookGrid.module.scss";
 import Card from "../Card/Card";
+import styles from "./BookGrid.module.scss";
 
 function BookGrid({ booksData }) {
   return (

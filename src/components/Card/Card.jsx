@@ -9,10 +9,10 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
     if (window.innerWidth <= 499) return 50;
 
     // based on tablet media queries
-    if (window.innerWidth <= 991) return 75;
+    if (window.innerWidth <= 991) return 50;
 
     // for bigger screens
-    return 100;
+    return 75;
   };
 
   const maxLengthValue = calculateMaxLength();
@@ -33,9 +33,7 @@ function Card({ id, title, subtitle, authors, description, imgURL }) {
 
   return (
     <div className={styles.card}>
-      <div>
-        <img src={imgURL} alt={`Book cover for ${title}`} />
-      </div>
+      <img src={imgURL} alt={`Book cover for ${title}`} />
 
       <div className={styles.card_right}>
         <div className={styles.card_content}>
