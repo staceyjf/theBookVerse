@@ -27,12 +27,8 @@ export const getBooksBySearchTerm = async (searchTerm) => {
 };
 
 // zoom controls image quality
-const fixBookCoverImgSize = (id) => {
-  // http://books.google.com/books/content?id=x6NgAAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
-  //books.google.com/books/publisher/content/images/frontcover/{ID}?fife=w400-h600&source=gbs_api
-  // const zoomFactor = 5;
-  // return url.replace(`zoom=1`, `zoom=${zoomFactor}`);
-  return `https://books.google.com/books/publisher/content/images/frontcover/${id}?fife=w200-h300&source=gbs_api`;
+const fixBookCoverImgSize = (id, w, h) => {
+  return `https://books.google.com/books/publisher/content/images/frontcover/${id}?fife=w${w}-h${h}&source=gbs_api`;
 };
 
 // using the nullish operator ?. to return undefined if it isn't present
@@ -43,9 +39,9 @@ export const booksDataForRender = (bookArr) => {
       title: book.volumeInfo.title,
       subtitle: book.volumeInfo?.subtitle,
       authors: book.volumeInfo?.authors,
-      description: book.volumeInfo?.description,
+      description: book.volumeInfo.description || "No description was found",
       imgURL: book.volumeInfo.imageLinks
-        ? fixBookCoverImgSize(book.id)
+        ? fixBookCoverImgSize(book.id, 200, 300)
         : undefined,
     };
   });
@@ -80,16 +76,16 @@ export const bookDataForRender = (book) => {
     id: book.id,
     title: book.volumeInfo.title,
     authors: book.volumeInfo?.authors,
-    description: book.volumeInfo?.description,
+    description: book.volumeInfo.description,
     publisher: book.volumeInfo.publisher,
     publishedDate: book.volumeInfo.publishedDate,
     ISBN: book.volumeInfo.industryIdentifiers,
     length: book.volumeInfo.pageCount,
     categories: book.volumeInfo.categories,
     averageRating: book.volumeInfo.averageRating,
-    googlePlayURL: book.volumeInfo.webReaderLink,
+    googlePlayURL: book.accessInfo.webReaderLink,
     imgURL: book.volumeInfo.imageLinks
-      ? fixBookCoverImgSize(book.id)
+      ? fixBookCoverImgSize(book.id, 200, 300)
       : undefined,
   };
 
