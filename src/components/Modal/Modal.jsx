@@ -50,7 +50,13 @@ function Modal({
         <div className={styles.card_right}>
           {authors && authors.map((author) => <p key={author}>{author}</p>)}
           <h4>{title}</h4>
-          {publishedDate && <p>{publishedDate}</p>}
+          {publishedDate && (
+            <p>
+              {new Date(publishedDate).toLocaleDateString("en-AU", {
+                year: "numeric",
+              })}
+            </p>
+          )}
           {publisher && <p>{publisher}</p>}
           {ISBN &&
             ISBN.map(({ identifier }) => (
@@ -62,12 +68,11 @@ function Modal({
           {averageRating && <p>Star rating: {averageRating}</p>}
           {googlePlayURL && (
             <a href={googlePlayURL} target="_blank">
-              <button>Buy</button>
+              <button>E-Book</button>
             </a>
           )}
         </div>
       </div>
-
       <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }}></div>
     </dialog>
   );

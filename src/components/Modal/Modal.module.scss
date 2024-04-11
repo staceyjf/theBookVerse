@@ -1,9 +1,10 @@
 @use "../../scss/partials/brand-variables" as bv;
+@use "../../scss/partials/queries" as q;
 
 .modal {
   display: grid;
   grid-template-rows: auto 1fr auto;
-  row-gap: 1em;
+  row-gap: 0.5em;
 
   &::backdrop {
     background: rgba(0, 0, 0, 0.5);
@@ -34,7 +35,7 @@
     &.button_close {
       justify-self: flex-end;
       @include bv.font--secondary(800);
-      padding: 0.5em;
+      padding: 12px 20px 12px;
       color: black;
       background: none;
       box-shadow: none;
@@ -49,11 +50,12 @@
   .card {
     display: grid;
     grid-template-rows: auto;
-    grid-template-columns: auto auto;
-    column-gap: 0.5em;
+    grid-template-columns: auto 1fr;
+    column-gap: 1em;
 
     & img {
       justify-self: center;
+      height: 100%;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
         0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
@@ -61,25 +63,28 @@
     &_right {
       display: flex;
       flex-direction: column;
-      row-gap: 0.5em;
+      row-gap: 1em;
       @include bv.font--secondary(400);
 
-      & h5 {
+      & h4 {
         @include bv.font--primary(800);
+        font-size: x-large;
       }
 
-      & p {
+      & p:first-of-type {
         font-size: small;
-
-        &:last-of-type {
-          margin-top: 0.5em;
-        }
       }
 
-      & h5,
+      & h4,
       p {
-        margin: 0.25em;
+        margin: 0em;
       }
+    }
+
+    @include q.phone {
+      grid-template-rows: auto 1fr;
+      grid-template-columns: auto;
+      row-gap: 1em;
     }
   }
 }
