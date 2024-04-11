@@ -8,7 +8,7 @@ function Card({
   description,
   imgURL,
   setBookId,
-  setModalOpen,
+  setOpenModal,
 }) {
   const calculateMaxLength = (title) => {
     // based on mobile media queries
@@ -35,7 +35,7 @@ function Card({
 
   const handleModalClick = (bookId) => {
     setBookId(bookId);
-    setModalOpen(true);
+    setOpenModal(true);
   };
 
   return (

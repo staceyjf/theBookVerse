@@ -16,9 +16,10 @@ function Modal({
   googlePlayURL,
   imgURL,
   openModal,
-  setModalOpen,
+  setOpenModal,
 }) {
   const modal = useRef();
+  console.log("Modal has rendered");
   // points to the dialog so we can open and close the modal
   // doesn't cause a rerender
 
@@ -29,19 +30,36 @@ function Modal({
   );
 
   useEffect(() => {
-    openModal ? modal.current?.showModal() : modal.current?.close();
+    console.log("this is openModal state");
+    console.log(openModal);
+    console.log("the modal inside my useEffect");
+    console.log(modal.current);
+    // openModal ? modal.current?.showModal() : modal.current?.close();
+    if (openModal) {
+      modal.current?.showModal();
+    } else {
+      console.log("trying to close modal");
+      modal.current?.close();
+      console.log("Modal should be closed now");
+    }
   }, [openModal]);
 
   return (
     <dialog
       className={styles.modal}
       ref={modal}
-      onCancel={() => setModalOpen(false)}
+      onCancel={() => {
+        console.log("I'm in cancel");
+        setOpenModal(false);
+      }}
       id={id}
     >
       <button
         className={styles.button_close}
-        onClick={() => setModalOpen(false)}
+        onClick={() => {
+          console.log("I'm in close");
+          setOpenModal(false);
+        }}
       >
         x
       </button>

@@ -6,7 +6,7 @@ import {
 import Modal from "../../components/Modal/Modal.jsx";
 import Spinner from "../../components/Spinner/Spinner.jsx";
 
-function ModalLoader({ bookId, modalOpen, setModalOpen }) {
+function ModalLoader({ bookId, openModal, setOpenModal }) {
   const [bookData, setBookData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -30,8 +30,8 @@ function ModalLoader({ bookId, modalOpen, setModalOpen }) {
       {!isLoading && errorMessage && <p>{errorMessage.message}</p>}
       {!isLoading && bookData && (
         <Modal
-          openModal={modalOpen}
-          setModalOpen={setModalOpen}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
           {...bookData}
         />
       )}

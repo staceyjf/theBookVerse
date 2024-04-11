@@ -10,7 +10,7 @@ import ModalLoader from "../../containers/ModalLoader/ModalLoader.jsx";
 function BookLoader({ searchTerm }) {
   const [booksData, setBooksData] = useState(null);
   const [bookId, setBookId] = useState(null);
-  const [modalOpen, setModalOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
 
@@ -45,13 +45,13 @@ function BookLoader({ searchTerm }) {
         <BookGrid
           booksData={booksData}
           setBookId={setBookId}
-          setModalOpen={setModalOpen}
+          setOpenModal={setOpenModal}
         />
       )}
       <ModalLoader
         bookId={bookId}
-        modalOpen={modalOpen}
-        setModalOpen={setModalOpen}
+        openModal={openModal}
+        setOpenModal={setOpenModal}
       />
     </>
   );

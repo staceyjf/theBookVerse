@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import styles from "./BookGrid.module.scss";
 
-function BookGrid({ booksData, setBookId, setModalOpen }) {
+function BookGrid({ booksData, setBookId, setOpenModal }) {
   return (
     <section className={styles.bookGrid_section}>
       <div className={styles.bookGrid_container}>
@@ -11,7 +11,7 @@ function BookGrid({ booksData, setBookId, setModalOpen }) {
               key={bookData.id}
               {...bookData}
               setBookId={setBookId}
-              setModalOpen={setModalOpen}
+              setOpenModal={setOpenModal}
             />
           );
         })}
