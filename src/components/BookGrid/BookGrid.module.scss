@@ -1,17 +1,27 @@
 @use "../../scss/partials/brand-variables" as bv;
 @use "../../scss/partials/queries" as q;
 
-.bookGrid_container {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  position: relative;
-  padding-top: 0.5em;
-  padding-bottom: 1em;
-  gap: 1.5em;
+.bookGrid {
+  &_section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-  @include q.phone {
-    padding-left: 0.25em;
-    padding-right: 0.25em;
+  &_container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
+    gap: 1.5em;
+    padding-left: 3em;
+    padding-right: 3em;
+
+    @include q.phone {
+      padding-left: 1em;
+      padding-right: 1em;
+    }
   }
 }

@@ -3,7 +3,7 @@ import styles from "./BookGrid.module.scss";
 
 function BookGrid({ booksData, setBookId, setModalOpen }) {
   return (
-    <section>
+    <section className={styles.bookGrid_section}>
       <div className={styles.bookGrid_container}>
         {booksData.map((bookData) => {
           return (
