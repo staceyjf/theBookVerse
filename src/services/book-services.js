@@ -27,7 +27,7 @@ export const getBooksBySearchTerm = async (searchTerm) => {
 };
 
 // zoom controls image quality
-const increaseZoomThumbnails = (id) => {
+const fixBookCoverImgSize = (id) => {
   // http://books.google.com/books/content?id=x6NgAAAAcAAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api
   //books.google.com/books/publisher/content/images/frontcover/{ID}?fife=w400-h600&source=gbs_api
   // const zoomFactor = 5;
@@ -45,7 +45,7 @@ export const booksDataForRender = (bookArr) => {
       authors: book.volumeInfo?.authors,
       description: book.volumeInfo?.description,
       imgURL: book.volumeInfo.imageLinks
-        ? increaseZoomThumbnails(book.id)
+        ? fixBookCoverImgSize(book.id)
         : undefined,
     };
   });
@@ -83,13 +83,13 @@ export const bookDataForRender = (book) => {
     description: book.volumeInfo?.description,
     publisher: book.volumeInfo.publisher,
     publishedDate: book.volumeInfo.publishedDate,
-    ISBN: book.industryIdentifiers,
-    length: book.pageCount,
-    categories: book.categories,
-    averageRating: book.averageRating,
-    googlePlayURL: book.webReaderLink,
+    ISBN: book.volumeInfo.industryIdentifiers,
+    length: book.volumeInfo.pageCount,
+    categories: book.volumeInfo.categories,
+    averageRating: book.volumeInfo.averageRating,
+    googlePlayURL: book.volumeInfo.webReaderLink,
     imgURL: book.volumeInfo.imageLinks
-      ? increaseZoomThumbnails(book.volumeInfo.imageLinks.thumbnail)
+      ? fixBookCoverImgSize(book.id)
       : undefined,
   };
 

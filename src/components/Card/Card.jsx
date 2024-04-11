@@ -22,8 +22,6 @@ function Card({
   const maxLengthValue = calculateMaxLength(title);
 
   const formatDescription = (str, maxLength) => {
-    if (!str) str = "No description available";
-
     if (str.length > maxLength) {
       return (
         str.charAt(0).toUpperCase() +
