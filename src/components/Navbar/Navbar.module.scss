@@ -11,13 +11,6 @@ nav {
 
   & .logo_container {
     height: 100%;
-    padding-top: 2em;
-    padding-left: 2em;
-    display: flex;
-    align-items: center;
-  }
-
-  @include q.phone {
-    padding-bottom: 2em;
+    padding: 2em;
   }
 }
