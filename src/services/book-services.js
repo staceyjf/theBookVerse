@@ -1,16 +1,25 @@
 // const apiKey = import.meta.env.VITE_GOOGLEBOOKS_API_KEY;
 
 export const getBooksBySearchTerm = async (searchTerm) => {
+  if (searchTerm === "") {
+    console.warn(
+      `Error calling calling the Google Books API Volumes search endpoint.`
+    );
+    throw new Error(
+      `Ooops your search was empty. Please try again but this time don't forget to add a search term.`
+    );
+  }
+
   // const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}&key=${apiKey}`;
   const url = `https://www.googleapis.com/books/v1/volumes?q=${searchTerm}`;
 
   const response = await fetch(url);
 
   if (!response.ok) {
-    console.warn(response.statusText);
-    throw new Error(
+    console.warn(
       `Error calling calling the Google Books API Volumes search endpoint.`
     );
+    throw new Error(`There has been an issue. Please try again.`);
   }
 
   const data = await response.json();
@@ -54,9 +63,11 @@ export const getBookByBookId = async (bookId) => {
   const response = await fetch(url);
 
   if (!response.ok) {
-    console.warn(response.statusText);
-    throw new Error(
+    console.warn(
       `Error calling the Google Books API specific Volume endpoint.`
+    );
+    throw new Error(
+      `There has been an issue loading this book. Please try again`
     );
   }
 

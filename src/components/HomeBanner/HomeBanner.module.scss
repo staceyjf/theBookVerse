@@ -24,6 +24,17 @@
     width: 50%;
   }
 
+  @include q.phone {
+    .container {
+      padding-top: 3.5em;
+    }
+    .header_wrapper {
+      position: absolute;
+      top: 0;
+      width: 80%;
+    }
+  }
+
   @include q.tablet {
     padding: 1em 1.5em 0.5em 1.5em;
 

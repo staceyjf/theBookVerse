@@ -3,8 +3,9 @@ import {
   getBooksBySearchTerm,
   booksDataForRender,
 } from "../../services/book-services.js";
-import BookGrid from "../../components/BookGrid/BookGrid.jsx";
 import Spinner from "../../components/Spinner/Spinner.jsx";
+import BookGrid from "../../components/BookGrid/BookGrid.jsx";
+import StatusMessage from "../../components/StatusMessage/StatusMessage.jsx";
 import ModalLoader from "../../containers/ModalLoader/ModalLoader.jsx";
 
 function BookLoader({ searchTerm }) {
@@ -31,7 +32,7 @@ function BookLoader({ searchTerm }) {
       getBooksBySearchTerm(searchTerm)
         .then((booksData) => booksDataForRender(booksData))
         .then((cleanedBooksData) => setBooksData(cleanedBooksData))
-        .catch((e) => setErrorMessage(e))
+        .catch((e) => setErrorMessage(e.message))
         .finally(() => setIsLoading(false));
     }
   }, [searchTerm]);
@@ -39,8 +40,8 @@ function BookLoader({ searchTerm }) {
   return (
     <>
       {isLoading && <Spinner />}
-      {!isLoading && errorMessage && <p>{errorMessage.message}</p>}
-      {!isLoading && booksData && (
+      {!isLoading && errorMessage && <StatusMessage error={errorMessage} />}
+      {!isLoading && !errorMessage && booksData && (
         <BookGrid
           booksData={booksData}
           setBookId={setBookId}

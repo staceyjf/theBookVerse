@@ -17,6 +17,7 @@ function Modal({
   openModal,
   setOpenModal,
 }) {
+  // TODO look for double render
   const modal = useRef();
   // points to the dialog so we can open and close the modal
   // doesn't cause a rerender
@@ -29,6 +30,7 @@ function Modal({
 
   useEffect(() => {
     openModal ? modal.current?.showModal() : modal.current?.close();
+    console.log("modal has changed open or close status");
   }, [openModal]);
 
   const handleBackdropClick = () => {
@@ -36,6 +38,7 @@ function Modal({
   };
 
   return (
+    // TODO: reshape modal with <header> <section> <footer>
     <dialog
       className={styles.modal}
       ref={modal}
