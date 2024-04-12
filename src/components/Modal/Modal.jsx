@@ -49,41 +49,45 @@ function Modal({
       id={id}
     >
       <div className={styles.modal_wrapper}>
-        <button
-          className={styles.button_close}
-          onClick={() => {
-            setOpenModal(false);
-          }}
-        >
-          x
-        </button>
-        <div className={styles.card}>
-          <img src={imgURL} alt={`Book cover for ${title}`} />
-          <div className={styles.card_right}>
-            {authors && authors.map((author) => <p key={author}>{author}</p>)}
-            <h4>{title}</h4>
-            {publishedDate && (
-              <p>
-                {new Date(publishedDate).toLocaleDateString("en-AU", {
-                  year: "numeric",
-                })}
-              </p>
-            )}
-            {publisher && <p>{publisher}</p>}
-            {ISBN &&
-              ISBN.map(({ identifier }) => (
-                <p key={identifier}>ISBN: {identifier}</p>
-              ))}
-            {length && <p>{length} pages</p>}
-            {averageRating && <p>Star rating: {averageRating}</p>}
-            {googlePlayURL && (
-              <a href={googlePlayURL} target="_blank">
-                <button>E-Book</button>
-              </a>
-            )}
+        <header className={styles.modal_header}>
+          <button
+            className={styles.button_close}
+            onClick={() => {
+              setOpenModal(false);
+            }}
+          >
+            x
+          </button>
+        </header>
+        <main className={styles.modal_main}>
+          <div className={styles.modal_card}>
+            <img src={imgURL} alt={`Book cover for ${title}`} />
+            <div>
+              {authors && authors.map((author) => <p key={author}>{author}</p>)}
+              <h4>{title}</h4>
+              {publishedDate && (
+                <p>
+                  {new Date(publishedDate).toLocaleDateString("en-AU", {
+                    year: "numeric",
+                  })}
+                </p>
+              )}
+              {publisher && <p>{publisher}</p>}
+              {ISBN &&
+                ISBN.map(({ identifier }) => (
+                  <p key={identifier}>ISBN: {identifier}</p>
+                ))}
+              {length && <p>{length} pages</p>}
+              {averageRating && <p>Star rating: {averageRating}</p>}
+              {googlePlayURL && (
+                <a href={googlePlayURL} target="_blank">
+                  <button>E-Book</button>
+                </a>
+              )}
+            </div>
           </div>
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }}></div>
+          <div dangerouslySetInnerHTML={{ __html: sanitizedDescription }}></div>
+        </main>
       </div>
     </dialog>
   );

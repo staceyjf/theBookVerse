@@ -10,11 +10,7 @@
   }
 
   .modal_wrapper {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    row-gap: 0.75em;
-
-    & button {
+    button {
       display: inline-block;
       outline: 0;
       border: 0;
@@ -37,7 +33,7 @@
       }
 
       &.button_close {
-        justify-self: flex-end;
+        margin: auto 0;
         @include bv.font--secondary(800);
         padding: 10px 18px 10px;
         color: black;
@@ -51,24 +47,24 @@
       }
     }
 
-    .card {
-      display: grid;
-      grid-template-rows: auto 1fr;
-      grid-template-columns: auto;
-      row-gap: 1em;
+    .modal_header {
+      display: flex;
+      justify-content: flex-end;
+    }
 
-      & img {
-        justify-self: center;
-        height: 100%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
+    .modal_main {
+      .modal_card {
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: auto 1fr;
+        column-gap: 1em;
 
-      &_right {
-        display: flex;
-        flex-direction: column;
-        row-gap: 0.5em;
-        @include bv.font--secondary(400);
+        & img {
+          justify-self: center;
+          height: 100%;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+            0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
 
         & h4 {
           @include bv.font--primary(800);
@@ -80,8 +76,12 @@
           font-size: small;
         }
 
+        & p:last-of-type {
+          margin-bottom: 1em;
+        }
+
         & p {
-          margin: 0em;
+          margin: 1em 0 0 0;
         }
 
         & p,
@@ -92,12 +92,6 @@
         a {
           margin-top: auto;
         }
-      }
-
-      @include q.laptop {
-        grid-template-rows: auto;
-        grid-template-columns: auto 1fr;
-        column-gap: 1em;
       }
     }
   }
