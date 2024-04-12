@@ -49,9 +49,7 @@ export const booksDataForRender = (bookArr) => {
       subtitle: book.volumeInfo?.subtitle,
       authors: book.volumeInfo?.authors,
       description: book.volumeInfo.description || "No description was found",
-      imgURL: book.volumeInfo.imageLinks
-        ? fixBookCoverImgSize(book.id, 200, 300)
-        : undefined,
+      imgURL: fixBookCoverImgSize(book.id, 200, 300) ?? undefined,
     };
   });
 };
@@ -93,25 +91,12 @@ export const bookDataForRender = (book) => {
     ISBN: book.volumeInfo.industryIdentifiers,
     length: book.volumeInfo.pageCount,
     averageRating: book.volumeInfo.averageRating,
-    googlePlayURL: book.accessInfo.webReaderLink,
-    imgURL: book.volumeInfo.imageLinks
-      ? fixBookCoverImgSize(book.id, 200, 300)
-      : undefined,
+    googlePlayURL:
+      book.saleInfo.saleability !== "NOT_FOR_SALE"
+        ? book.accessInfo.webReaderLink
+        : null,
+    imgURL: fixBookCoverImgSize(book.id, 200, 300) ?? undefined,
   };
 
   return cleanedBook;
 };
-
-// {
-//   "error": {
-//     "code": 503,
-//     "message": "Service temporarily unavailable.",
-//     "errors": [
-//       {
-//         "message": "Service temporarily unavailable.",
-//         "domain": "global",
-//         "reason": "backendFailed"
-//       }
-//     ]
-//   }
-// }
