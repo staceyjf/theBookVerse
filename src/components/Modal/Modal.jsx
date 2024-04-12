@@ -31,6 +31,10 @@ function Modal({
     openModal ? modal.current?.showModal() : modal.current?.close();
   }, [openModal]);
 
+  const handleBackdropClick = () => {
+    setOpenModal(false);
+  };
+
   return (
     <dialog
       className={styles.modal}
@@ -38,6 +42,7 @@ function Modal({
       onCancel={() => {
         setOpenModal(false);
       }}
+      onClick={handleBackdropClick}
       id={id}
     >
       <div className={styles.modal_wrapper}>
