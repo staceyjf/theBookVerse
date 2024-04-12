@@ -2,89 +2,107 @@
 @use "../../scss/partials/queries" as q;
 
 .modal {
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-  row-gap: 0.5em;
+  border: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
 
   &::backdrop {
     background: rgba(0, 0, 0, 0.5);
   }
 
-  & button {
-    display: inline-block;
-    outline: 0;
-    border: 0;
-    cursor: pointer;
-    border-radius: 8px;
-    padding: 16px 24px 16px;
-    font-weight: 700;
-    line-height: 1;
-    transition: transform 100ms, background-color 100ms;
-    background: transparent;
-    color: bv.$secondary-color;
-    box-shadow: 0 0 0 3px bv.$secondary-color inset;
-    margin-top: auto;
+  .modal_wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    row-gap: 0.5em;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 0 3px bv.$primary-color inset;
-      color: white;
-      background: bv.$primary-color;
-    }
-
-    &.button_close {
-      justify-self: flex-end;
-      @include bv.font--secondary(800);
-      padding: 12px 20px 12px;
-      color: black;
-      background: none;
-      box-shadow: none;
+    & button {
+      display: inline-block;
+      outline: 0;
+      border: 0;
+      cursor: pointer;
+      border-radius: 8px;
+      padding: 16px 24px 16px;
+      font-weight: 700;
+      line-height: 1;
+      transition: transform 100ms, background-color 100ms;
+      background: transparent;
+      color: bv.$secondary-color;
+      box-shadow: 0 0 0 3px bv.$secondary-color inset;
+      margin-top: auto;
 
       &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 3px bv.$primary-color inset;
         color: white;
-        background: bv.$secondary-color-light;
+        background: bv.$primary-color;
+      }
+
+      &.button_close {
+        justify-self: flex-end;
+        @include bv.font--secondary(800);
+        padding: 10px 18px 10px;
+        color: black;
+        background: none;
+        box-shadow: none;
+
+        &:hover {
+          color: white;
+          background: bv.$secondary-color-light;
+        }
+      }
+    }
+
+    .card {
+      display: grid;
+      grid-template-rows: auto 1fr;
+      grid-template-columns: auto;
+      row-gap: 1em;
+
+      & img {
+        justify-self: center;
+        height: 100%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      &_right {
+        display: flex;
+        flex-direction: column;
+        row-gap: 0.5em;
+        @include bv.font--secondary(400);
+
+        & h4 {
+          @include bv.font--primary(800);
+          font-size: x-large;
+          margin: 0 0 0.4em 0;
+        }
+
+        & p:first-of-type {
+          font-size: small;
+        }
+
+        & p {
+          margin: 0em;
+        }
+
+        & p,
+        h4 {
+          padding-left: 0.25em;
+        }
+
+        a {
+          margin-top: auto;
+        }
+      }
+
+      @include q.laptop {
+        grid-template-rows: auto;
+        grid-template-columns: auto 1fr;
+        column-gap: 1em;
       }
     }
   }
 
-  .card {
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: auto 1fr;
-    column-gap: 1em;
-
-    & img {
-      justify-self: center;
-      height: 100%;
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-        0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    }
-
-    &_right {
-      display: flex;
-      flex-direction: column;
-      row-gap: 1em;
-      @include bv.font--secondary(400);
-
-      & h4 {
-        @include bv.font--primary(800);
-        font-size: x-large;
-      }
-
-      & p:first-of-type {
-        font-size: small;
-      }
-
-      & h4,
-      p {
-        margin: 0em;
-      }
-    }
-
-    @include q.phone {
-      grid-template-rows: auto 1fr;
-      grid-template-columns: auto;
-      row-gap: 1em;
-    }
+  @include q.laptop {
+    width: 80%;
   }
 }

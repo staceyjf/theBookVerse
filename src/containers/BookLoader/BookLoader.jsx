@@ -36,7 +36,6 @@ function BookLoader({ searchTerm }) {
     }
   }, [searchTerm]);
 
-  // TODO - is it best to have a component for error messaging
   return (
     <>
       {isLoading && <Spinner />}

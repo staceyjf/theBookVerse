@@ -81,7 +81,6 @@ export const bookDataForRender = (book) => {
     publishedDate: book.volumeInfo.publishedDate,
     ISBN: book.volumeInfo.industryIdentifiers,
     length: book.volumeInfo.pageCount,
-    categories: book.volumeInfo.categories,
     averageRating: book.volumeInfo.averageRating,
     googlePlayURL: book.accessInfo.webReaderLink,
     imgURL: book.volumeInfo.imageLinks
@@ -89,8 +88,6 @@ export const bookDataForRender = (book) => {
       : undefined,
   };
 
-  console.log("this is the book data from services");
-  console.log(cleanedBook);
   return cleanedBook;
 };
 
