@@ -12,7 +12,7 @@
   .modal_wrapper {
     display: grid;
     grid-template-rows: auto 1fr auto;
-    row-gap: 0.5em;
+    row-gap: 0.75em;
 
     & button {
       display: inline-block;
