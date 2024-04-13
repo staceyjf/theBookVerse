@@ -55,9 +55,6 @@
     .modal_main {
       .modal_card {
         display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: auto 1fr;
-        column-gap: 1em;
 
         & img {
           justify-self: center;
@@ -91,6 +88,18 @@
 
         a {
           margin-top: auto;
+        }
+
+        @include q.tablet {
+          grid-template-rows: auto;
+          grid-template-columns: auto 1fr;
+          column-gap: 1em;
+        }
+
+        @include q.laptop {
+          grid-template-rows: auto;
+          grid-template-columns: auto 1fr;
+          column-gap: 1em;
         }
       }
     }
