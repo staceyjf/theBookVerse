@@ -71,6 +71,7 @@ function Modal({
                     year: "numeric",
                   })}
                 </p>
+                
               )}
               {publisher && <p>{publisher}</p>}
               {ISBN &&
