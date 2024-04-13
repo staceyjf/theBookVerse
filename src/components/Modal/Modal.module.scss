@@ -4,6 +4,7 @@
 .modal {
   border: none;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.9);
+  @include bv.font--secondary(400);
 
   &::backdrop {
     background: rgba(0, 0, 0, 0.5);
