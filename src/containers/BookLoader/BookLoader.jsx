@@ -48,11 +48,13 @@ function BookLoader({ searchTerm }) {
           setOpenModal={setOpenModal}
         />
       )}
-      <ModalLoader
-        bookId={bookId}
-        openModal={openModal}
-        setOpenModal={setOpenModal}
-      />
+      {openModal && (
+        <ModalLoader
+          bookId={bookId}
+          openModal={openModal}
+          setOpenModal={setOpenModal}
+        />
+      )}
     </>
   );
 }
