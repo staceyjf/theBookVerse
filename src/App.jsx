@@ -8,12 +8,10 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="screen">
-      <div className="screen_wrapper">
-        <Navbar />
-        <HomeBanner />
-        <SearchContainer />
-      </div>
+    <div className="app-container">
+      <Navbar />
+      <HomeBanner />
+      <SearchContainer />
     </div>
   );
 }
