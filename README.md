@@ -9,7 +9,7 @@ theBookVerse is a React front-end application that leverages the power of the Go
 
 <br>
 
-Explore it at: [books.staceyfanner.com](https://portfolio.staceyfanner.com/theBookVerse/)
+Explore it at: [ https://www.staceyfanner.com/theBookVerse/]( https://www.staceyfanner.com/theBookVerse/)
 
 ## About
 
